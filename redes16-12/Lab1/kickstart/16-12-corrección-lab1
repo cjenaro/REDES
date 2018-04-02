@@ -1,0 +1,19 @@
++ No se sigue la estructura de directorios en el repositorio ('Lab1' en vez de 'lab1'), además contiene el directorio 'kickstart'.
++ Código objeto en el repositorio.
++ No cumple PEP8.
++ Quitar comentarios obsoletos.
++ En server.py:26 el atributo 'self.server' no es representativo.
++ Código muerto en:
+  - connection.py:23|42|51|114.
++ 'and self.connected' en la guarda del connection.py:37: es redundante (mirar la guarda del while).
++ No es necesario declarar 'direc' en connection.py:83. Puede usarse 'self.directory'.
++ Se hacen dos operaciones 'join()' iguales en connection.py:87 y connection.py:89.
++ Por qué:
+  - 'print type(self.buffer)' en connection.py:34?
+  - definen el atributo 'self.buffer' en vez de una variable local en connection.py:30?
+  - asignan 'self.directory = DEFAULT_DIR' en connection.py:133:quit().
++ 'command' en la guarda del 'elif' de connection.py:43 no está definido en ese scope.
++ El algoritmo de connection.py:valid_filename está mal.
++ En connection.py:71:get_file_listing mandan mensaje de OK antes de ejecutar 'listdir()' que podría levantar una excepción.
++ En connection.py:get_slice() no se evalua tipo y validez de los parámetros.
++ connection.py:user_program() muy compleja.

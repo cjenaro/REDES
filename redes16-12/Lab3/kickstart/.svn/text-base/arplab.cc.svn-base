@@ -1,0 +1,43 @@
+#include "node.h"
+
+
+/*
+ * Implementar!
+ * Intentar enviar `data` al `ip` especificado.
+ * `data` es un buffer con IP_PAYLOAD_SIZE bytes.
+ * Si la dirección MAC de ese IP es desconocida, debería enviarse un pedido ARP.
+ * Devuelve 0 en caso de éxito y distinto de 0 si es necesario reintentar luego
+ * (porque se está bucando la dirección MAC usando ARP)
+ */
+int Node::send_to_ip(IPAddress ip, void *data) {
+    return 1;
+}
+
+
+/*
+ * Implementar!
+ * Manejar el recibo de un paquete.
+ * Si es un paquete ARP: procesarlo.
+ * Si es un paquete con datos: pasarlo a la capa de red con receive_ip_packet.
+ * `packet` es un buffer de ETHERFRAME_SIZE bytes.
+    Un paquete Ethernet tiene:
+     - 6 bytes MAC destino
+     - 6 bytes MAC origen
+     - 2 bytes tipo
+     - 46-1500 bytes de payload (en esta aplicación siempre son 1500)
+    Tamaño total máximo: 1514 bytes
+ */
+void Node::receive_ethernet_packet(void *packet) {
+}
+
+
+/*
+ * Constructor de la clase. Poner inicialización aquí.
+ */
+Node::Node()
+{
+    timer = NULL;
+    for (unsigned int i = 0; i != AMOUNT_OF_CLIENTS; ++i) {
+        seen[i] = 0;
+    }
+}
